@@ -7,8 +7,7 @@ import org.springframework.context.annotation.ImportResource;
 
 import it.akademija.products.DBProductDao;
 import it.akademija.products.ProductDao;
-import it.akademija.users.InMemoryUserDao;
-import it.akademija.users.UserDao;
+import it.akademija.users.UserRepository;
 
 @ImportResource({"classpath*:application-context.xml"})
 @Configuration
@@ -21,11 +20,7 @@ public class AppConfig {
  		return new DBProductDao();
  	}
 	
-	@Bean
-	UserDao userDao() {
-		return new InMemoryUserDao();
-	}
-	
+
 	
 	
  

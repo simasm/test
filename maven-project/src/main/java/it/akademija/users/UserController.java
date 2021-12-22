@@ -22,18 +22,18 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping(value="api/users")
 public class UserController {
 
-	private final UserDao userDao;
+	private final UserDao userService;
 	
 	@Autowired
-	public UserController(UserDao userDao) {
-		this.userDao = userDao;
+	public UserController(UserDao userService) {
+		this.userService = userService;
 	}
 	
 	@ApiOperation(value="get users")
  	@RequestMapping(method = RequestMethod.GET)
 	public List<User> getUsers() {
 	 
-		return userDao.getUsers();
+		return userService.getUsers();
 	
 	}
 	
@@ -45,11 +45,11 @@ public class UserController {
 			@Valid
 			@RequestBody 
 			final CreateUserCommand cmd) {
-		int size = userDao.getUsers().size();
- 		userDao.createUser(new User(cmd.getUsername() 
+		int size = userService.getUsers().size();
+		userService.createUser(new User(cmd.getUsername() 
 	 
 									));
- 		if(size < userDao.getUsers().size())
+ 		if(size < userService.getUsers().size())
  			System.out.println("created " + cmd.getUsername());
 	}
 	
@@ -60,6 +60,6 @@ public class UserController {
 			 @PathVariable final String username) {
 		
 		 System.out.println("Deleted: " + username +
-				 " " +  userDao.deleteUser(username));
+				 " " +  userService.deleteUser(username));
 	 }
 }

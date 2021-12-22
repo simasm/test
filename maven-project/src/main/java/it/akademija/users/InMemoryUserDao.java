@@ -6,7 +6,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 public class InMemoryUserDao implements UserDao {
 
 	private final List<User> users = new CopyOnWriteArrayList<>();

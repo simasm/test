@@ -1,9 +1,20 @@
 package it.akademija.users;
 
-public final class User {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public final class User {
+	
+	@Column
 	private String username;
  
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long dbid;
 	
 	public User() { }
 	public User(String username ) {
