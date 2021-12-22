@@ -25,7 +25,7 @@ const App = () => {
     const [appState, setAppState] = useState({ username: "", cart: [] });
 
 
-    return (
+    return (  
         <div className="container">
             <UserContext.Provider value={{ appState: appState, setAppState }}>
                 <BrowserRouter basename={process.env.PUBLIC_URL}>
