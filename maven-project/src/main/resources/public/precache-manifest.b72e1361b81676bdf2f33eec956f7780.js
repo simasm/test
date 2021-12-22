@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "007e9e4e8a3f2f7e5c0d52611c4345a8",
+    "revision": "b47f777063ffb3e971c54660d8531099",
     "url": "/maven-project/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/maven-project/static/css/2.171a7357.chunk.css"
   },
   {
-    "revision": "9529dad26fb5642d3824",
+    "revision": "6dc4ac2a76ecdd675440",
     "url": "/maven-project/static/css/main.e7512b03.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/maven-project/static/js/3.42d2b476.chunk.js"
   },
   {
-    "revision": "9529dad26fb5642d3824",
-    "url": "/maven-project/static/js/main.f7744d78.chunk.js"
+    "revision": "6dc4ac2a76ecdd675440",
+    "url": "/maven-project/static/js/main.0305b67a.chunk.js"
   },
   {
     "revision": "ac3a4ed9f090ece1281a",

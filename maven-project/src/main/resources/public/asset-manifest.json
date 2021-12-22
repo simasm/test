@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/maven-project/static/css/main.e7512b03.chunk.css",
-    "main.js": "/maven-project/static/js/main.f7744d78.chunk.js",
-    "main.js.map": "/maven-project/static/js/main.f7744d78.chunk.js.map",
+    "main.js": "/maven-project/static/js/main.0305b67a.chunk.js",
+    "main.js.map": "/maven-project/static/js/main.0305b67a.chunk.js.map",
     "runtime-main.js": "/maven-project/static/js/runtime-main.17d552cf.js",
     "runtime-main.js.map": "/maven-project/static/js/runtime-main.17d552cf.js.map",
     "static/css/2.171a7357.chunk.css": "/maven-project/static/css/2.171a7357.chunk.css",
@@ -11,7 +11,7 @@
     "static/js/3.42d2b476.chunk.js": "/maven-project/static/js/3.42d2b476.chunk.js",
     "static/js/3.42d2b476.chunk.js.map": "/maven-project/static/js/3.42d2b476.chunk.js.map",
     "index.html": "/maven-project/index.html",
-    "precache-manifest.3c7125ad557d53d27b43a9453f476b60.js": "/maven-project/precache-manifest.3c7125ad557d53d27b43a9453f476b60.js",
+    "precache-manifest.b72e1361b81676bdf2f33eec956f7780.js": "/maven-project/precache-manifest.b72e1361b81676bdf2f33eec956f7780.js",
     "service-worker.js": "/maven-project/service-worker.js",
     "static/css/2.171a7357.chunk.css.map": "/maven-project/static/css/2.171a7357.chunk.css.map",
     "static/css/main.e7512b03.chunk.css.map": "/maven-project/static/css/main.e7512b03.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.171a7357.chunk.css",
     "static/js/2.a9e47bd5.chunk.js",
     "static/css/main.e7512b03.chunk.css",
-    "static/js/main.f7744d78.chunk.js"
+    "static/js/main.0305b67a.chunk.js"
   ]
 }
