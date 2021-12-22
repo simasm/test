@@ -16,7 +16,7 @@ const Admin_view = () => {
    // console.log("pub url "+ process.env.PUBLIC_URL);
 
     const loadProducts = async () => {
-        const response = await axios.get("api/products");
+        const response = await axios.get(process.env.PUBLIC_URL+"/api/products");
         const products = response.data;
         setProductList({ products_array: products });
 
