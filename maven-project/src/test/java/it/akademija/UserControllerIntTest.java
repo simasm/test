@@ -27,15 +27,25 @@ public class UserControllerIntTest {
 	
 	@Test
 	public void createsUserThenRetrievesUserListAndDeletesUser() {
-		final String username = "testUsername";
+		final String username = "testUsername3";
 		final CreateUserCommand createUser = new CreateUserCommand();
+		rest.delete(URI + "/" + username);
+		int size1 = rest.getForEntity(URI,  List.class ).getBody().size();
 		createUser.setUsername(username);
 		rest.postForLocation(URI, createUser);
-		List<User> users = rest.getForEntity(URI,  List.class ).getBody();
-		MatcherAssert.assertThat(users.size(), CoreMatchers.is(1));
+		int size2 = rest.getForEntity(URI,  List.class ).getBody().size();
 		rest.delete(URI + "/" + username);
-		users = rest.getForEntity(URI, List.class).getBody();
-		MatcherAssert.assertThat(users.size(), CoreMatchers.is(0));
+		int size3 = rest.getForEntity(URI, List.class).getBody().size();
+	//	System.out.println("size2 " +size2);
+ 
+		MatcherAssert.assertThat(size2, CoreMatchers.is(size1+1));
+	 
+		
+	//	System.out.println("size3 " +size3);
+
+		MatcherAssert.assertThat(size3, CoreMatchers.is(size1));
 	}
+ 
+	 
 	
 }
