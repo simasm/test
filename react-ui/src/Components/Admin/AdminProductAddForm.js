@@ -2,17 +2,17 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import axios from "axios";
 
-import { Admin_productListContext } from './Admin_view';
+import { AdminProductListContext } from './AdminView';
 
-const Admin_productAddForm = () => {
+const AdminProductAddForm = () => {
 
     const [state, setState] = useState({ title: "", price: "", quantity: "" });
-    const { loadProducts } = useContext(Admin_productListContext);
+    const { loadProducts } = useContext(AdminProductListContext);
 
     const submitHandle = (e) => {
 
         if (validateForm()) {
-             uploadProduct();
+            uploadProduct();
             e.preventDefault();
         }
         else alert("invalid product details");
@@ -24,22 +24,27 @@ const Admin_productAddForm = () => {
         switch (e.target.name) {
             case "title": setState({ ...state, title: e.target.value }); break;
             case "price": setState({ ...state, price: e.target.value }); break;
-            case "quantity": setState({ ...state, quantity: e.target.value });  break;
+            case "quantity": setState({ ...state, quantity: e.target.value }); break;
             default: break;
         }
     }
 
     const validateForm = () => {
-       
+
         return ((state.price.match(/^([0-9]+\.?[0-9]*|\.[0-9]+)$/) &&
             state.quantity.match(/^[0-9]+$/)) !== null);
     }
 
     const uploadProduct = async () => {
 
-        const response = await axios.post(process.env.PUBLIC_URL+"/api/products", state);
-         if (response.status < 400) {
-            loadProducts();
+        try {
+            const response = await axios.post(process.env.PUBLIC_URL + "/api/products", state);
+            if (response.status < 400) {
+                loadProducts();
+            }
+
+        } catch (err) {
+            console.log(err);
         }
 
     }
@@ -90,4 +95,4 @@ const Admin_productAddForm = () => {
 
 
 
-export default Admin_productAddForm;
+export default AdminProductAddForm;

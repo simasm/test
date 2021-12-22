@@ -3,41 +3,50 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import { UserContext } from "../App";
- 
+
 const Bar = (props) => {
 
-  
+
 
   const { appState, setAppState } = useContext(UserContext);
   const [userState, setUser] = useState("");
-  const [cartState, setCartState] = useState({cart : []});
- 
+  const [cartState, setCartState] = useState({ cart: [] });
+
   const handleInput = (e) => {
     setUser({ user: e.target.value });
     e.preventDefault();
   }
 
-  useEffect( ()=> {
-   
+  useEffect(() => {
 
-    setAppState({username: userState.user, cart :  cartState.cart});
-   
-  },[cartState,userState]);
+
+    setAppState({ username: userState.user, cart: cartState.cart });
+
+  }, [cartState, userState]);
   //login
   const login = async () => {
-    
-     const response = await axios.post(process.env.PUBLIC_URL+"/api/users", { username: userState.user });
-     const response2 = await axios.get(process.env.PUBLIC_URL+"/api/carts/".concat(userState.user));
-     if(response2.data !== null)
-     setCartState({cart : response2.data });
-     else setCartState({cart : []});
+
+    let response2 = null;
+    try {
+
+      const response = await axios.post(process.env.PUBLIC_URL + "/api/users", { username: userState.user });
+      response2 = await axios.get(process.env.PUBLIC_URL + "/api/carts/".concat(userState.user));
+
     }
+    catch (err) {
+      console.log(err);
+    }
+    if (response2.data !== null)
+      setCartState({ cart: response2.data });
+    else setCartState({ cart: [] });
+
+  }
   const handleSubmit = (e) => {
- 
+
 
     login();
-  
-    
+
+
     e.preventDefault();
 
 

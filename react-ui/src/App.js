@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import './App.css';
 import Bar from './Components/Bar'
 import ProductContainer from "./Components/ProductContainer";
@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import Cart from "./Components/Cart";
 import Footer from "./Components/Footer";
- import Admin_view from "./Components/Admin/Admin_view";
+import AdminView from "./Components/Admin/AdminView";
 
 //const stock = new Items();
 
@@ -17,21 +17,21 @@ import Footer from "./Components/Footer";
 export const UserContext = React.createContext({});
 
 
- 
+
 const App = () => {
 
-    
-    
-    const [appState,setAppState] = useState({username:"", cart : []});
-  
+
+
+    const [appState, setAppState] = useState({ username: "", cart: [] });
+
 
     return (
         <div className="container">
-            <UserContext.Provider value={{appState: appState ,setAppState}}>
+            <UserContext.Provider value={{ appState: appState, setAppState }}>
                 <BrowserRouter basename={process.env.PUBLIC_URL}>
-                     
-                       <Bar /> 
-                   
+
+                    <Bar />
+
                     <Switch>
                         <Route exact path="/">
                             <ProductContainer />
@@ -43,9 +43,9 @@ const App = () => {
                             <Cart />
                         </Route>
                         <Route path="/admin">
-                         
-                            
-                            <Admin_view />
+
+
+                            <AdminView />
                         </Route>
                         <Route path="/:id">
                             <ProductContainer />

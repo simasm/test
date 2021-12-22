@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react/cjs/react.development";
 import DetailsButton from "./DetailsButton";
- 
+
 import AddToCartButton from "./AddToCartButton";
 
 class Card extends Component {
@@ -21,7 +21,7 @@ class Card extends Component {
     };
   }
 
-   
+
 
   cardClick = () => {
 
@@ -44,11 +44,11 @@ class Card extends Component {
           </p>
 
 
-          <DetailsButton viewMode={this.props.viewMode} 
-                         id={this.state.id} />
+          <DetailsButton viewMode={this.props.viewMode}
+            id={this.state.id} />
 
-          <AddToCartButton id={this.state.id}/>
-     
+          <AddToCartButton id={this.state.id} />
+
 
         </div>
       </div>

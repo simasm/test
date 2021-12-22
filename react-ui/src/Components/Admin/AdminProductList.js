@@ -1,16 +1,20 @@
 import React, { useContext } from 'react';
 import axios from 'axios';
-import { Admin_productListContext } from './Admin_view';
+import { AdminProductListContext } from './AdminView';
 
-const Admin_productList = () => {
+const AdminProductList = () => {
 
-    const { productList, loadProducts } = useContext(Admin_productListContext);
+    const { productList, loadProducts } = useContext(AdminProductListContext);
 
     const deleteProduct = async (id) => {
-        
-        const response = await axios.delete(process.env.PUBLIC_URL+"/api/products/".concat(id));
-         if (response.status < 400) {
-            loadProducts();
+
+        try {
+            const response = await axios.delete(process.env.PUBLIC_URL + "/api/products/".concat(id));
+            if (response.status < 400) {
+                loadProducts();
+            }
+        } catch (err) {
+            console.log(err);
         }
     }
 
@@ -48,4 +52,4 @@ const Admin_productList = () => {
     else
         return <> loading...</>;
 }
-export default Admin_productList;
+export default AdminProductList;

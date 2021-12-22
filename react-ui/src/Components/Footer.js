@@ -1,6 +1,6 @@
-import React  from "react";
- 
-const Footer =  ( ) => {
+import React from "react";
+
+const Footer = () => {
 
 
     return (
@@ -11,7 +11,7 @@ const Footer =  ( ) => {
                         footer
                     </div>
                 </section>
-                <div className="text-center p-4" style={{backgroundcolor : "grey"}}>
+                <div className="text-center p-4" style={{ backgroundcolor: "grey" }}>
                     © 2021
                 </div>
 
@@ -19,7 +19,7 @@ const Footer =  ( ) => {
 
             </footer>
 
- 
+
 
         </React.Fragment >
 

@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "../App";
 import axios from "axios";
+import IncreaseDecrease from "./IncreaseDecrease";
 
 
 
@@ -8,16 +9,20 @@ import axios from "axios";
 const Cart = () => {
     let { appState } = useContext(UserContext);
     const [state, setState] = useState({ products_array: null });
- 
+
     useEffect(() => {
 
         const load = async () => {
-            const response = await axios.get(process.env.PUBLIC_URL+"/api/products");
-            const products = response.data;
-           
+            try {
+                const response = await axios.get(process.env.PUBLIC_URL + "/api/products");
+                const products = response.data;
 
-            setState({ products_array: products });
 
+                setState({ products_array: products });
+            }
+            catch (err) {
+                console.log(err);
+            }
         }
 
         /// console.log("use effect");
@@ -30,7 +35,7 @@ const Cart = () => {
     }
 
     const cartNr = () => {
-        
+
     }
 
     if (state.products_array !== null)
@@ -56,12 +61,13 @@ const Cart = () => {
                         <div className="col btn m-2 btn-secondary btn-sm"
                             onClick={() => deleteProduct(product)}>Delete</div>
                     </li>)} */}
-                    {JSON.stringify(appState.cart)}
+                {JSON.stringify(appState.cart)}
 
             </ol>
+
         </div>);
     else
-        return <></>;
+        return <>  </>;
 }
 
 

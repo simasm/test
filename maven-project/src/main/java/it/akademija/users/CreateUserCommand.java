@@ -1,7 +1,13 @@
 package it.akademija.users;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+
 public class CreateUserCommand {
 	
+	@NotNull
+	@Length(min = 1, max = 100)
 	private String username;
  
 	

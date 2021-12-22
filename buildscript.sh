@@ -7,7 +7,11 @@ cd maven-project/src/main/resources/public
 rm -r -f ./*
 echo Building react app...
 cd ../../../../../react-ui/
-npm run build
+if npm run build | grep "Failed\|failed\|error\|Error"
+	then echo Build failed
+else
+	echo Build completed
+fi
 sleep 2 #kad matytusi build klaidos, turi buti node moduliai viduj
 echo Copying build to target...
 cd ../maven-project/src/main/resources/public/

@@ -5,22 +5,22 @@ export default class TestComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            testvar : 1
-         };
+            testvar: 1
+        };
     }
 
 
     handleClick = (event) => {
         event.preventDefault();
-        this.setState(   { testvar : this.state.testvar + 1}) ;
+        this.setState({ testvar: this.state.testvar + 1 });
         console.log(this.state.testvar);
 
 
     }
 
-    static getDerivedStateFromProps   (props, state)  {
+    static getDerivedStateFromProps(props, state) {
         console.log("getDerivedStateFromProps");
-        return { testvar : state.testvar};
+        return { testvar: state.testvar };
     }
 
     static componentDidMount = () => {
@@ -35,14 +35,14 @@ export default class TestComponent extends Component {
     render() {
         return (
             <div>
-                 {this.state.testvar} &nbsp; 
+                {this.state.testvar} &nbsp;
                 <button className="btn btn-primary"
-                    onClick={this.handleClick}> PressMe 
+                    onClick={this.handleClick}> PressMe
                 </button>
 
             </div>
         );
-    
+
     }
 
 }
