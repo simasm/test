@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
  
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
-
+ 
 @RequestMapping(value = "api/carts")
 public class CartController {
 
@@ -27,14 +26,12 @@ public class CartController {
 		this.cartDao = cartDao;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
-	@RequestMapping(method = RequestMethod.GET)
+ 	@RequestMapping(method = RequestMethod.GET)
 	public Map<String, List<Long>> getCarts() {
 		return cartDao.getCarts();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
-	@RequestMapping(method = RequestMethod.POST)
+ 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createCart(@RequestBody final CreateCartCommand cmd ) {
 		System.out.println(cmd.getCart());

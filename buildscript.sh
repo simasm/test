@@ -1,7 +1,7 @@
 #!/bin/sh
 #. ~/.nvm/nvm.sh
 #nvm use v16.13.0
-# folderis - script, .git, react-ui, maven-project
+# folderis - thisscript, .git, react-ui, maven-project
 echo Removing old resources...
 cd maven-project/src/main/resources/public
 rm -r -f ./*

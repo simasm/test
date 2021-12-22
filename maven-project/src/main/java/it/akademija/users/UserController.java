@@ -23,16 +23,14 @@ public class UserController {
 		this.userDao = userDao;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
-	@RequestMapping(method = RequestMethod.GET)
+ 	@RequestMapping(method = RequestMethod.GET)
 	public List<User> getUsers() {
 	 
 		return userDao.getUsers();
 	
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
-	@RequestMapping(method = RequestMethod.POST) 
+ 	@RequestMapping(method = RequestMethod.POST) 
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createUser(@RequestBody final CreateUserCommand cmd) {
 		int size = userDao.getUsers().size();
@@ -43,8 +41,7 @@ public class UserController {
  			System.out.println("created " + cmd.getUsername());
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
-	@RequestMapping(method = RequestMethod.DELETE, path = "/{username}")
+ 	@RequestMapping(method = RequestMethod.DELETE, path = "/{username}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	 public void deleteUser(@PathVariable final String username) {
 		

@@ -23,14 +23,12 @@ public class ProductController {
 		this.productDao = productDao;
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
-	@RequestMapping(method = RequestMethod.GET)
+ 	@RequestMapping(method = RequestMethod.GET)
 	public List<Product> getProducts() {
 		return productDao.getProducts();
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
-	@RequestMapping(method = RequestMethod.POST)
+ 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createProduct(@RequestBody final CreateProductCommand cmd ) {
 		productDao.addProduct(new Product(
@@ -40,8 +38,7 @@ public class ProductController {
 		System.out.println("created "+ cmd.getTitle());
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
-	@RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
+ 	@RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	 public void deleteUser(@PathVariable final long id) {
 		
