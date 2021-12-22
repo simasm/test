@@ -1,10 +1,11 @@
 package it.akademija;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
-import it.akademija.products.InMemoryProductDao;
+import it.akademija.products.DBProductDao;
 import it.akademija.products.ProductDao;
 import it.akademija.users.InMemoryUserDao;
 import it.akademija.users.UserDao;
@@ -14,10 +15,11 @@ import it.akademija.users.UserDao;
 public class AppConfig {
 	 
  
-	@Bean
-	ProductDao productDao() {
-		return new InMemoryProductDao();
-	}
+ 	@Bean
+ 	@Qualifier ("repoProductDao")
+ 	ProductDao productDao() {
+ 		return new DBProductDao();
+ 	}
 	
 	@Bean
 	UserDao userDao() {

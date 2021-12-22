@@ -1,12 +1,27 @@
 package it.akademija.products;
- 
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class Product {
+	@Transient
 	private static long idgen = 1;
+	@Column
 	private long id;
+	@Column
 	private long quantity;
+	@Column
 	private double price;
+	@Column
 	private String title;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long dbid;
 	
 	public Product() { }
 	public Product(String title, long quantity, double price) {

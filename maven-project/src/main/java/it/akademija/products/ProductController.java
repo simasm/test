@@ -20,17 +20,23 @@ import io.swagger.annotations.ApiParam;
 @RequestMapping(value = "api/products")
 public class ProductController {
 
-	private final ProductDao productDao;
+	private final ProductService productService;
+	
+	@Autowired PagingData pagingData;
+	
 	
 	@Autowired
-	public ProductController(ProductDao productDao) {
-		this.productDao = productDao;
+	public ProductController(ProductService productService) {
+		this.productService = productService;
 	}
+	
+	
 	
  	@RequestMapping(method = RequestMethod.GET)
 	@ApiOperation(value="get products")
  	public List<Product> getProducts() {
-		return productDao.getProducts();
+ 		pagingData.setLimit(5);
+		return productService.getProducts();
 	}
 	
 	@ApiOperation(value="create product")
@@ -38,7 +44,7 @@ public class ProductController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createProduct(@ApiParam(value="product data")
 			@RequestBody final CreateProductCommand cmd ) {
-		productDao.addProduct(new Product(
+		productService.createProduct(new Product(
 				cmd.getTitle(),
 				cmd.getQuantity(),
 				cmd.getPrice()));
@@ -52,6 +58,6 @@ public class ProductController {
 			 @PathVariable final long id) {
 		
 		 System.out.println("Deleted: " + id + 
-				 " " +  productDao.deleteProduct(id));
+				 " " +  productService.deleteProduct(id));
 	 }
 }
