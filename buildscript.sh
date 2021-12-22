@@ -1,13 +1,14 @@
 #!/bin/sh
 #. ~/.nvm/nvm.sh
 #nvm use v16.13.0
+# folderis - script, .git, react-ui, maven-project
 echo Removing old resources...
 cd maven-project/src/main/resources/public
 rm -r -f ./*
 echo Building react app...
 cd ../../../../../react-ui/
 npm run build
-sleep 2
+sleep 2 #kad matytusi build klaidos, turi buti node moduliai viduj
 echo Copying build to target...
 cd ../maven-project/src/main/resources/public/
 cp -r ../../../../../react-ui/build/* .
